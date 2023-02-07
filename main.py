@@ -21,18 +21,14 @@ arr = [3, 3]
 # Given an integer x, return true if x is a palindrome, and false otherwise.
 
 
-def is_palindrome(x):
+
+def is_polindrome(x):
     str_x = str(x)
-    left_side = 0
-    right_side = len(str_x) - 1
-    while left_side <= right_side:
-        if str_x[left_side] != str_x[right_side]:
-            return False
-        else:
-            left_side += 1
-            right_side -= 1
-    return True
+    str_x_reverse = str_x[::-1]
+    if str_x == str_x_reverse:
+        return True
+    else:
+        return False
 
 
-
-print(is_palindrome(101))
+print(is_polindrome(1))
