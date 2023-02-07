@@ -1,8 +1,6 @@
 
+arr = [3, 3]
 
-arr = [2, 4, 3, 11, 0, 1]
-#
-#
 # def two_num_sum(array, target):
 #     for i in range(len(array)):
 #         for j in range(1, len(array)):
@@ -18,16 +16,23 @@ arr = [2, 4, 3, 11, 0, 1]
 # value_2 = sum - num
 
 
-def two_num_sum(array, target):
-    hash_table = {}
-    for num in array:
-        if target - num in hash_table:
-            return [target - num, num]
+
+# Palindrome Number
+# Given an integer x, return true if x is a palindrome, and false otherwise.
+
+
+def is_palindrome(x):
+    str_x = str(x)
+    left_side = 0
+    right_side = len(str_x) - 1
+    while left_side <= right_side:
+        if str_x[left_side] != str_x[right_side]:
+            return False
         else:
-            hash_table[num] = True
-    return []
+            left_side += 1
+            right_side -= 1
+    return True
 
 
-print(two_num_sum(arr, 5)
-)
 
+print(is_palindrome(101))
