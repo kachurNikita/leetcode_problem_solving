@@ -2,7 +2,7 @@
 arr = [2, 5, 5, 11]
 
 
-def two_sum( nums, target):
+def two_sum(nums, target):
     visited_nums = {}
     for i in range(len(nums)):
         visited_nums[i] = nums[i]
