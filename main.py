@@ -13,10 +13,7 @@ def two_sum(nums, target):
 
 two_sum(arr, 10)
 
-# Speed n**2
-# sum = num + value_2
-# num = sum - value_2
-# value_2 = sum - num
+
 
 
 def is_palindrome(x):
