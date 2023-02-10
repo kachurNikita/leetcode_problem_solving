@@ -1,5 +1,8 @@
 
 arr = [1, 2, 3, 10]
+test_1 = [7,1,5,3,6,4]
+test_2 = [3,2,6,5,0,3]
+test_3 = [2,1,2,1,0,1,2]
 
 def two_sum(nums, target):
     visited_nums = {}
@@ -56,29 +59,29 @@ is_palindrome(101)
 #         return res
 #
 #
-# print(max_profit(test_1))
+# solution = Solution()
+# print(solution.max_profit([2, 1, 11,]))
 
-class Solution(object):
-    def max_profit(self, prices):
-        if len(prices) == 1:
-            return 0
-        left_end = 0
-        right_end = len(prices) - 1
-        min_price = min(prices)
-        max_price = max(prices)
-        min_price_index = prices.index(min_price)
-        max_price_index = prices.index(max_price)
-        if min_price_index == right_end:
-            prices.remove(min_price)
-            return self.max_profit(prices)
-        elif max_price_index == left_end:
-            prices.remove(max_price)
-            self.max_profit(prices)
-            return self.max_profit(prices)
-        if max_price_index > min_price_index:
-            res = max_price - min_price
-            return res
+def max_profit(array):
+    min_value = min(array)
+    max_value = max(array)
+    while len(array) > 1:
+        if min_value == 0:
+            array.remove(min_value)
+            min_value = min(array)
+        if array.index(min_value) == len(array) - 1:
+            if len(array) > 1:
+                array.remove(min_value)
+                min_value = min(array)
+        if array.index(max_value) < array.index(min_value):
+            if len(array) > 1:
+                array.remove(max_value)
+                max_value = max(array)
+        else:
+            return max_value - min_value
+    else:
+        return 0
 
 
-solution = Solution()
-print(solution.max_profit([6, 4, 3, 2, 1]))
+print(max_profit(test_2))
+
