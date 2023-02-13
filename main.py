@@ -38,11 +38,11 @@ is_palindrome(101)
 
 # 27. Remove Element
 
+case_1 = [0,1,2,2,3,0,4,2]
+case_2 = [3,2,2,3]
+def remove_element(nums, value):
+        while value in nums:
+            nums.remove(value)
+        return nums
 
-def remove_element(nums, val):
-    for i in range(len(nums)):
-        while val in nums:
-            nums.remove(val)
-    return nums
-
-# print(remove_element())
+print(remove_element(case_1, 2))
