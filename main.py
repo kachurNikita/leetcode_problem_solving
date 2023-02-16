@@ -35,7 +35,6 @@ is_palindrome(101)
 # Note that buying on day 2 and selling on day 1 is not allowed because you must buy before you sell.
 
 
-
 # 27. Remove Element
 def remove_element(nums, value):
         while value in nums:
@@ -43,3 +42,64 @@ def remove_element(nums, value):
         return nums
 
 # print(remove_element())
+
+# 104. Maximum Depth of Binary Tree
+
+class Node(object):
+    def __init__(self, val,  left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+    def __repr__(self):
+        return f'Vertex {self.val}'
+
+
+# parent_node = Node(4)
+# parent_node.right = Node(6)
+# parent_node.right.right = Node(7)
+# parent_node.right.right.right = Node(9)
+# parent_node.right.right.right.right = Node(8)
+# parent_node.right.right.right.right.left = Node(5)
+# parent_node.right.right.right.right.right = Node(1)
+# parent_node.right.right.right.right.right.left = Node(14)
+# parent_node.right.right.right.right.right.right = Node(6)
+# parent_node.right.right.right.right.right.right.left = Node(3)
+# parent_node.right.right.right.right.right.right.right = Node(2)
+#
+parent_node = Node(3)
+parent_node.left = Node(9)
+parent_node.right = Node(20)
+parent_node.right.left = Node(15)
+parent_node.right.right = Node(7)
+
+
+# 104. Maximum Depth of Binary Tree
+class Solution(object):
+    def maxDepth(self, root):
+        if not root:
+            return 0
+        else:
+            l_nodes = self.maxDepth(root.left)
+            r_nodes = self.maxDepth(root.right)
+
+            if l_nodes > r_nodes:
+                return l_nodes + 1
+            else:
+                return r_nodes + 1
+
+
+sol = Solution()
+print(sol.maxDepth(parent_node))
+
+
+# 989. Add to Array-Form of Integer
+
+def add_to_array_form(array, k):
+    array = ''.join(str(number) for number in array)
+    array = int(array) + k
+    array = [int(i) for i in str(array)]
+    return array
+
+
+print(add_to_array_form([2, 7, 4],  181))
